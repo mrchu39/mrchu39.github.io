@@ -3,80 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matthew Chu | Physics PhD Student</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+    <title>Matthew R. Chu</title>
     <style>
-        :root { --accent-color: #0076d1; }
-        header { border-bottom: 2px solid var(--accent-color); padding-bottom: 2rem; margin-bottom: 3rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 2rem; }
-        .card { border: 1px solid #444; padding: 1.5rem; border-radius: 8px; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
-        .tag { font-size: 0.8rem; background: #333; padding: 2px 8px; border-radius: 4px; color: #aaa; margin-right: 5px; }
-        nav { margin-top: 1rem; }
-        nav a { margin-right: 15px; font-weight: bold; }
-        footer { margin-top: 5rem; font-size: 0.9rem; opacity: 0.7; }
+        :root { --bg: #ffffff; --text: #333333; --text-light: #777777; --border: #eeeeee; --accent: #111111; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.8; margin: 0; padding: 0 20px; }
+        .container { max-width: 800px; margin: 0 auto; padding-bottom: 4rem; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 3rem 0; margin-bottom: 2rem; }
+        @media (max-width: 600px) { header { flex-direction: column; gap: 1rem; align-items: flex-start; } }
+        .site-title { font-size: 1.2rem; font-weight: 600; text-decoration: none; color: var(--accent); letter-spacing: -0.5px; }
+        nav { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+        nav a { text-decoration: none; color: var(--text-light); font-size: 0.95rem; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: var(--accent); font-weight: 500; }
+        
+        .hero { margin-top: 4rem; }
+        h1 { font-size: 2.5rem; font-weight: 600; letter-spacing: -1px; margin-bottom: 1rem; color: var(--accent); }
+        .hero p { font-size: 1.1rem; color: var(--text-light); max-width: 650px; }
+        .social-links { margin-top: 3rem; display: flex; gap: 1.5rem; }
+        .social-links a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid transparent; transition: all 0.2s; }
+        .social-links a:hover { color: var(--accent); border-bottom: 1px solid var(--accent); }
     </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="site-title">Matthew R. Chu</a>
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="experience.html">Experience & Education</a>
+                <a href="publications.html">Publications</a>
+                <a href="coursework.html">Coursework</a>
+            </nav>
+        </header>
 
-    <header>
-        <h1>Matthew Chu</h1>
-        <p><strong>Physics PhD Student</strong> • UC San Diego | KEK</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#research">Research</a>
-            <a href="#projects">Software</a>
-            <a href="https://github.com/mrchu39">GitHub</a>
-            <a href="mailto:mrchu@ucsd.edu">Contact</a>
-        </nav>
-    </header>
-
-    <section id="about">
-        <h2>About</h2>
-        <p>
-            I am a doctoral researcher focusing on high-energy astrophysics and observational cosmology. 
-            My work bridges the gap between hardware and analysis, specifically developing robust data 
-            pipelines and statistical methodologies for large-scale experiments.
-        </p>
-    </section>
-
-    <section id="research">
-        <h2>Active Research</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Circular Polarization</h3>
-                <p>Leading unblinding meetings and analysis for ongoing research into circular polarization phenomena in the cosmic microwave background.</p>
-                <span class="tag">Cosmology</span><span class="tag">POLARBEAR-2b</span>
+        <main class="hero">
+            <h1>Hello. I'm Matthew.</h1>
+            <p>I am an American citizen and a Physics Ph.D. student at the University of California, San Diego, specializing in Observational Cosmology.</p>
+            <p>I seek to apply my astrophysics and data analysis knowledge and experience to deepen our understanding of the universe.</p>
+            
+            <div class="social-links">
+                <a href="mailto:mrchu@ucsd.edu">mrchu@ucsd.edu</a>
+                <a href="tel:8452701764">(845) 270-1764</a>
             </div>
-            <div class="card">
-                <h3>Statistical Noise Estimation</h3>
-                <p>Developing refined noise estimation techniques utilizing non-random map sign-flipping to improve data fidelity in astronomical surveys.</p>
-                <span class="tag">Statistics</span><span class="tag">Methodology</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>Software & Pipelines</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>SASQUATCH</h3>
-                <p><em>Simons Array Simplified QUAntitative Tracking and Collection.</em> A high-performance Python pipeline for processing POLARBEAR-2b data.</p>
-                <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Astropy</span>
-            </div>
-            <div class="card">
-                <h3>Supernova Classification</h3>
-                <p>Tools for pulling transient data from Fritz, utilizing SNID for classification, and streamlining TNS reporting.</p>
-                <span class="tag">Automation</span><span class="tag">Astrophysics</span>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <hr>
-        <p>Built with GitHub Pages • Last Updated: May 2026</p>
-    </footer>
-
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </main>
+    </div>
 </body>
 </html>

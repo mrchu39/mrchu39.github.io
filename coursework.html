@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coursework - Matthew R. Chu</title>
+    <style>
+        :root { --bg: #ffffff; --text: #333333; --text-light: #777777; --border: #eeeeee; --accent: #111111; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.8; margin: 0; padding: 0 20px; }
+        .container { max-width: 800px; margin: 0 auto; padding-bottom: 4rem; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 3rem 0; margin-bottom: 2rem; }
+        @media (max-width: 600px) { header { flex-direction: column; gap: 1rem; align-items: flex-start; } }
+        .site-title { font-size: 1.2rem; font-weight: 600; text-decoration: none; color: var(--accent); letter-spacing: -0.5px; }
+        nav { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+        nav a { text-decoration: none; color: var(--text-light); font-size: 0.95rem; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: var(--accent); font-weight: 500; }
+        
+        h2 { font-size: 1.5rem; font-weight: 600; margin-top: 4rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; color: var(--accent); }
+        h3 { font-size: 1.1rem; color: var(--text-light); margin-top: 3rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
+        
+        .term-section { margin-bottom: 2rem; }
+        .term-title { font-weight: 600; font-size: 0.95rem; color: var(--accent); margin-bottom: 0.5rem; }
+        .course-list { list-style: none; padding: 0; margin: 0; }
+        .course-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; display: flex; flex-direction: column; }
+        .course-list li:last-child { border-bottom: none; }
+        .course-name { font-weight: 600; color: var(--text); }
+        .course-meta { color: var(--text-light); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="site-title">Matthew R. Chu</a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="experience.html">Experience & Education</a>
+                <a href="publications.html">Publications</a>
+                <a href="coursework.html" class="active">Coursework</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Relevant Coursework</h2>
+            
+            <h3>Graduate Courses</h3>
+
+            <div class="term-section">
+                <div class="term-title">Fall 2024</div>
+                <ul class="course-list">
+                    <li><span class="course-name">General Relativity I</span><span class="course-meta">Physics 225A (Prof. Raphael Flauger)</span></li>
+                </ul>
+            </div>
+
+            <div class="term-section">
+                <div class="term-title">Spring 2024</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Cosmology</span><span class="course-meta">Physics 227 (Prof. David Tytler)</span></li>
+                    <li><span class="course-name">Machine Learning</span><span class="course-meta">Physics 239 (Profs. Javier Duarte & Aobo Li)</span></li>
+                </ul>
+            </div>
+
+            <div class="term-section">
+                <div class="term-title">Spring 2023</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Equilibrium Statistical Mechanics</span><span class="course-meta">Physics 210A (Prof. Terence Hwa)</span></li>
+                    <li><span class="course-name">Advanced Electrodynamics II</span><span class="course-meta">Physics 203B (Prof. Benjamin Grinstein)</span></li>
+                    <li><span class="course-name">Physics Estimates</span><span class="course-meta">Physics 202 (Prof. Thomas Murphy)</span></li>
+                </ul>
+            </div>
+            
+            <div class="term-section">
+                <div class="term-title">Winter 2023</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Quantum Mechanics II</span><span class="course-meta">Physics 212B (Prof. Aneesh Manohar)</span></li>
+                    <li><span class="course-name">Advanced Electrodynamics I</span><span class="course-meta">Physics 203A (Prof. Benjamin Grinstein)</span></li>
+                    <li><span class="course-name">Astronomical Instrumentation</span><span class="course-meta">Astronomy 229 (Prof. Shelley Wright)</span></li>
+                </ul>
+            </div>
+            
+            <div class="term-section">
+                <div class="term-title">Fall 2022</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Theoretical Mechanics I</span><span class="course-meta">Physics 200A (Prof. Massimiliano di Ventra)</span></li>
+                    <li><span class="course-name">Quantum Mechanics I</span><span class="course-meta">Physics 212A (Prof. Yizhuang You)</span></li>
+                    <li><span class="course-name">Mathematical Physics</span><span class="course-meta">Physics 201 (Prof. Michel Fogler)</span></li>
+                </ul>
+            </div>
+            
+            <h3>Undergraduate Courses</h3>
+
+            <div class="term-section">
+                <div class="term-title">Spring 2021</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Senior Thesis Research II</span><span class="course-meta">Physics H195B (Prof. Alexei Filippenko, Prof. Dan Kasen)</span></li>
+                </ul>
+            </div>
+
+            <div class="term-section">
+                <div class="term-title">Fall 2020</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Introduction to Statistical Mechanics</span><span class="course-meta">Physics 112 (Prof. Dung-Hai Lee)</span></li>
+                    <li><span class="course-name">Quantum Field Theory</span><span class="course-meta">Physics 151 (Prof. Hitoshi Murayama)</span></li>
+                    <li><span class="course-name">Advanced Experimentation Lab</span><span class="course-meta">Physics 111B (Prof. Daniel Stamper-Kurn)</span></li>
+                    <li><span class="course-name">Senior Thesis Research I</span><span class="course-meta">Physics H195A (Prof. Alexei Filippenko, Prof. Dan Kasen)</span></li>
+                </ul>
+            </div>
+            
+            <div class="term-section">
+                <div class="term-title">Spring 2020</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Electromagnetism and Optics II</span><span class="course-meta">Physics 110B (Prof. Chien-I Chiang)</span></li>
+                    <li><span class="course-name">Solid State Physics</span><span class="course-meta">Physics 141A (Prof. James Analytis)</span></li>
+                    <li><span class="course-name">Nonequilibrium Statistical Mechanics</span><span class="course-meta">Physics H190 (Prof. Michael deWeese)</span></li>
+                </ul>
+            </div>
+            
+            <div class="term-section">
+                <div class="term-title">Fall 2019</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Electromagnetism and Optics I</span><span class="course-meta">Physics 110A (Prof. Ori Ganor)</span></li>
+                    <li><span class="course-name">Quantum Mechanics II</span><span class="course-meta">Physics 137B (Prof. Austin Hedeman)</span></li>
+                </ul>
+            </div>
+            
+            <div class="term-section">
+                <div class="term-title">Spring 2019</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Analytic Mechanics</span><span class="course-meta">Physics 105 (Prof. Stuart Bale)</span></li>
+                    <li><span class="course-name">Instrumentation Laboratory</span><span class="course-meta">Physics 111A (Prof. Joel Fajans)</span></li>
+                </ul>
+            </div>
+            
+            <div class="term-section">
+                <div class="term-title">Fall 2018</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Introductory Thermodynamics and Quantum Mechanics</span><span class="course-meta">Physics 5C (Prof. Feng Wang)</span></li>
+                    <li><span class="course-name">Introduction to Experimental Physics II</span><span class="course-meta">Physics 5CL (Prof. Nathan Lowhorn)</span></li>
+                    <li><span class="course-name">Quantum Mechanics I</span><span class="course-meta">Physics 137A (Prof. Irfan Siddiqi)</span></li>
+                </ul>
+            </div>
+            
+            <div class="term-section">
+                <div class="term-title">Summer 2018</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Introduction to Mathematical Physics</span><span class="course-meta">Physics 89 (Prof. Austin Hedeman)</span></li>
+                </ul>
+            </div>
+            
+            <div class="term-section">
+                <div class="term-title">Spring 2018</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Introductory Electromagnetism, Waves, and Optics (Honors)</span><span class="course-meta">Physics 5B (Prof. Jonathan Wurtele)</span></li>
+                    <li><span class="course-name">Introduction to Experimental Physics I</span><span class="course-meta">Physics 5BL (Prof. Tatiana Seletskaia)</span></li>
+                    <li><span class="course-name">Linear Algebra and Differential Equations</span><span class="course-meta">Math 54 (Prof. Alexander Paulin)</span></li>
+                </ul>
+            </div>
+            
+            <div class="term-section">
+                <div class="term-title">Fall 2017</div>
+                <ul class="course-list">
+                    <li><span class="course-name">Introductory Mechanics and Relativity (Honors)</span><span class="course-meta">Physics 5A (Prof. Achilles Speliotopoulos)</span></li>
+                    <li><span class="course-name">Introduction to Computational Techniques in Physics</span><span class="course-meta">Physics 77 (Prof. Kam-Biu Luk)</span></li>
+                    <li><span class="course-name">Berkeley Connect (Physics)</span><span class="course-meta">Physics 98BC (Prof. Bernard Sadoulet)</span></li>
+                    <li><span class="course-name">Multivariable Calculus</span><span class="course-meta">Math 53 (Prof. Edward Frenkel)</span></li>
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
