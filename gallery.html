@@ -16,7 +16,11 @@
         nav a { text-decoration: none; color: var(--text-light); font-size: 0.95rem; transition: color 0.2s; }
         nav a:hover, nav a.active { color: var(--accent); font-weight: 500; }
         
-        h1 { font-size: 2rem; font-weight: 600; margin-bottom: 2rem; color: var(--accent); }
+        h1 { font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: var(--accent); text-align: center; }
+        
+        /* New Section Styles */
+        .gallery-section { margin-bottom: 5rem; }
+        .gallery-section h2 { font-size: 1.4rem; color: var(--accent); margin-bottom: 1.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
         
         /* Gallery Grid Layout */
         .gallery-grid {
@@ -39,6 +43,7 @@
             object-fit: cover;
             display: block;
             transition: transform 0.3s ease;
+            cursor: pointer; /* Changes the mouse to a pointer to indicate it's clickable */
         }
 
         .gallery-item:hover img {
@@ -52,6 +57,64 @@
             background: #fff;
             border-top: 1px solid var(--border);
         }
+
+        /* --- NEW MODAL (LIGHTBOX) STYLES --- */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; 
+            z-index: 1000; /* Sit on top of everything */
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.85); /* Black w/ opacity */
+            backdrop-filter: blur(5px); /* Modern blur effect */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 4px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+
+        #modalCaption {
+            margin-top: 15px;
+            color: #eeeeee;
+            font-size: 1rem;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #aaaaaa;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -60,7 +123,7 @@
             <a href="index.html" class="site-title">Matthew R. Chu</a>
             <nav>
                 <a href="index.html">Home</a>
-                <a href="experience.html">Experience & Education</a>
+                <a href="experience.html">Experience</a>
                 <a href="publications.html">Publications</a>
                 <a href="coursework.html">Coursework</a>
                 <a href="gallery.html" class="active">Gallery</a>
@@ -68,30 +131,199 @@
         </header>
 
         <main>
-            <h1>Gallery</h1>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/600x400/f4f6f8/777777?text=Photo+1" alt="Description">
-                    <div class="caption">Working with the SAT-I telescope instrumentation.</div>
-                </div>
+            <h1>Photo Gallery</h1>
 
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/600x400/f4f6f8/777777?text=Photo+2" alt="Description">
-                    <div class="caption">Observatory visit at Palomar.</div>
+            <!-- SECTION 2 -->
+            <section class="gallery-section">
+                <h2>Chile Deployment 2023</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/20230815_160826.jpg" alt="Description">
+                        <div class="caption">Atacama Desert above San Pedro de Atacama.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230816_093044.jpg" alt="Description">
+                        <div class="caption">Volcán Licancabur (left) and Volcán Juriques (right) from the telescope site.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230816_104736.jpg" alt="Description">
+                        <div class="caption">Telescope site, with the Simons Observatory (SO) Small Aperture Telescopes (SATS) in the foreground. The CLASS telescopes are visible in the background in front of Cerro Toco.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230816_104747.jpg" alt="Description">
+                        <div class="caption">SO Large Aperture Telescope (LAT).</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230816_180638.jpg" alt="Description">
+                        <div class="caption">Volcánes from Hotel Casa Don Esteban at sunset.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230817_095151.jpg" alt="Description">
+                        <div class="caption">Telescope site with SATP-1, SATP-1, and SATP-3 inside each of the conical wind screens.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230817_100915.jpg" alt="Description">
+                        <div class="caption">SATP-1 platform before telescope is mounted.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230817_102346.jpg" alt="Description">
+                        <div class="caption">Simons Array. From rear to front: POLARBEAR-2a, POLARBEAR, POLARBEAR-2b.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230817_102428.jpg" alt="Description">
+                        <div class="caption">ALMA from the telescope site on Cerro Toco.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230817_102706.jpg" alt="Description">
+                        <div class="caption">Tokyo Atacama Observatory from Cerro Toco.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230817_173106.jpg" alt="Description">
+                        <div class="caption">Vicuñas (relatives of llamas and alpacas) on the road to the telescope site.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230818_174045.jpg" alt="Description">
+                        <div class="caption">Viscacha (rodent, not closely related to rabbits) on the road to site.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230819_181650.jpg" alt="Description">
+                        <div class="caption">LAT at sunset from the site.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230819_210103.jpg" alt="Description">
+                        <div class="caption">Paella from a dinner at Radiosky, the lodging for the site staff.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230820_132124.jpg" alt="Description">
+                        <div class="caption">SATP-1 on the platform.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230822_171436.jpg" alt="Description">
+                        <div class="caption">Another viscacha.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230826_202011.jpg" alt="Description">
+                        <div class="caption">Michael Randall being harrassed by a dog at a burger truck in San Pedro.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230827_141553.jpg" alt="Description">
+                        <div class="caption">Bike ride North from San Pedro up the San Pedro River to the Valle de la Luna. Pictured are Remy Gerras and JB Lloyd.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230827_152022.jpg" alt="Description">
+                        <div class="caption">In the Valle de la Luna.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230827_162415~2.jpg" alt="Description">
+                        <div class="caption">Top of la Valle.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230827_174631~2.jpg" alt="Description">
+                        <div class="caption">Sunset in the valley.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230901_121933.jpg" alt="Description">
+                        <div class="caption">Flamingo preserve.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230901_123810~2.jpg" alt="Description">
+                        <div class="caption">More flamingos.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230910_171111.jpg" alt="Description">
+                        <div class="caption">Milky Way from Radiosky. One of the darkest sites I've ever been to.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230916_192648~2.jpg" alt="Description">
+                        <div class="caption">Returning from site late.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230923_213908.jpg" alt="Description">
+                        <div class="caption">Mom and puppy, newly adopted at Radiosky.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230924_132433.jpg" alt="Description">
+                        <div class="caption">Old observatory on Volcán Sairecabur.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230924_132621.jpg" alt="Description">
+                        <div class="caption">Free advertising for Toyota.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230924_132722.jpg" alt="Description">
+                        <div class="caption">From the rim of Sairecabur.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230924_133029.jpg" alt="Description">
+                        <div class="caption">Cairn on Sairecabur.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230924_142816.jpg" alt="Description">
+                        <div class="caption">"El Balcon de los Hermanos".</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230924_145930.jpg" alt="Description">
+                        <div class="caption">Some kind of old camp on Sairecabur.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230924_182818.jpg" alt="Description">
+                        <div class="caption">Church in the town square of San Pedro.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/20230925_194022.jpg" alt="Description">
+                        <div class="caption">View descending in from the flight from Calama to Santiago.</div>
+                    </div>
                 </div>
+            </section>
 
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/600x400/f4f6f8/777777?text=Photo+3" alt="Description">
-                    <div class="caption">Physics Graduate Council outreach event.</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/600x400/f4f6f8/777777?text=Photo+4" alt="Description">
-                    <div class="caption">Calibrating equipment at the Space Dynamics Laboratory.</div>
-                </div>
-            </div>
         </main>
     </div>
+
+    <!-- --- NEW MODAL (LIGHTBOX) HTML --- -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="expandedImg">
+        <div id="modalCaption"></div>
+    </div>
+
+    <!-- --- NEW MODAL (LIGHTBOX) JAVASCRIPT --- -->
+    <script>
+        // Get the modal elements
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("expandedImg");
+        const captionText = document.getElementById("modalCaption");
+        const closeBtn = document.querySelector(".close");
+
+        // Get all the images inside the gallery-grid
+        const images = document.querySelectorAll('.gallery-item img');
+
+        // Loop through each image to attach the click event
+        images.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.classList.add('active'); // Show the modal
+                modalImg.src = this.src; // Set the big image source to the clicked image source
+                captionText.innerHTML = this.nextElementSibling.innerHTML; // Grab the caption
+            });
+        });
+
+        // Close the modal when the "X" is clicked
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        // Close the modal when clicking anywhere in the dark background
+        modal.addEventListener('click', (e) => {
+            if (e.target !== modalImg) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Optional: Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
